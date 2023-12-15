@@ -10,7 +10,7 @@ response = client.start_pii_entities_detection_job(
         'InputFormat': 'ONE_DOC_PER_FILE'
     },
     OutputDataConfig={
-        'S3Uri': 's3://ai-starters/aws-comprehed-analytics-outcoming/pii-sample-data-api'
+        'S3Uri': 's3://ai-starters/aws-comprehed-analytics-outcoming/sample-data-api'
     },
     Mode='ONLY_REDACTION',
     RedactionConfig={
