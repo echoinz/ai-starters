@@ -14,6 +14,21 @@ class ComprehendWrapper:
         self.output_s3_uri = output_s3_uri
         self.iam_role_arn = iam_role_arn
 
+    def run_sentiment_detection_job(self):
+        response = self.comprehend_client.start_sentiment_detection_job(
+            InputDataConfig={
+                'S3Uri': self.input_s3_uri,
+                'InputFormat': 'ONE_DOC_PER_LINE'
+            },
+            OutputDataConfig={
+                'S3Uri': self.output_s3_uri
+            },
+            DataAccessRoleArn=self.iam_role_arn,
+            JobName='SentimentAnalysisJob',
+            LanguageCode='en'
+        )
+        print (response)
+
     def run_pii_entities_detection_job(self):
         # Run pii_entities_detection_job
         response = self.comprehend_client.start_pii_entities_detection_job(
