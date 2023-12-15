@@ -1,14 +1,7 @@
 import boto3
 
 class ComprehendWrapper:
-    """Encapsulates Textract functions."""
-
     def __init__(self, comprehend_client, input_s3_uri, output_s3_uri, iam_role_arn):
-        """
-                :param comprehend_client: A Boto3 Comprehend client.
-                :param s3_resource: A Boto3 Amazon S3 resource.
-                :param sqs_resource: A Boto3 Amazon SQS resource.
-                """
         self.comprehend_client = comprehend_client
         self.input_s3_uri = input_s3_uri
         self.output_s3_uri = output_s3_uri
